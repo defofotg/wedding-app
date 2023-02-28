@@ -1,0 +1,169 @@
+<div class="main-layout">
+  <div id="desktop-frame" class="is-hidden-mobile gray-box-shadow">
+    <div class="entete">
+      <p class="title">Invitation au mariage de Dirane et Cyrielle</p>
+      <p class="description"><strong>Dirane et Cyrielle</strong> vous invitent à prendre part aux festivités de célébration leur union le <strong>26 Aout 2023</strong>.</p>
+    </div>
+    <form #invitationForm="ngForm" (ngSubmit)="onSubmit(invitationForm)">
+      <div id="fields">
+        <div class="field">
+          <label class="label">Serez-vous présent(e)?</label>
+          <div class="control">
+            <label class="radio">
+              <input type="radio" name="isComing" value="true" (change)="changeResponse()" [(ngModel)]="isComing">
+              Oui
+            </label>
+            <label class="radio">
+              <input type="radio" name="isComing" value="false" (change)="changeResponse()" [(ngModel)]="isComing">
+              Non
+            </label>
+          </div>
+        </div>
+        <div *ngIf="willCome" class="field">
+          <label class="label">Serez-vous accompagné(e)?</label>
+          <div class="control">
+            <label class="radio">
+              <input type="radio" name="hasGuest" value="true" (change)="changeGuestResponse()" [(ngModel)]="hasGuest">
+              Oui
+            </label>
+            <label class="radio">
+              <input type="radio" name="hasGuest" value="false" (change)="changeGuestResponse()" [(ngModel)]="hasGuest">
+              Non
+            </label>
+          </div>
+        </div>
+        <div *ngIf="withSomebody" class="field">
+          <label class="label">Nom de l'accompagnant(e)</label>
+          <p class="control has-icons-left">
+            <input class="input" type="text" name="guestLastName" ngModel required>
+            <span class="icon is-small is-left">
+            <i class="fas fa-user"></i>
+          </span>
+          </p>
+        </div>
+        <div *ngIf="withSomebody" class="field">
+          <label class="label">Prénom de l'accompagnant(e)</label>
+          <p class="control has-icons-left">
+            <input class="input" type="text" name="guestFirstName" ngModel>
+            <span class="icon is-small is-left">
+            <i class="fas fa-user"></i>
+          </span>
+          </p>
+        </div>
+        <div *ngIf="willCome" id="activites" class="field">
+          <label class="label">Pour quelle(s) activité(s) serez vous présent(e)</label>
+          <div class="control">
+            <label>Mairie</label>
+            <input id="activite-mairie" type="checkbox" name="mairie" class="switch is-rtl" [ngModel]="okMairie">
+            <label for="activite-mairie"></label>
+          </div>
+          <div class="control">
+            <label>Eglise</label>
+            <input id="activite-eglise" type="checkbox" name="eglise" class="switch is-rtl" [ngModel]="okEglise">
+            <label for="activite-eglise"></label>
+          </div>
+          <div class="control">
+            <label>Vin d'honneur</label>
+            <input id="activite-vin-honneur" type="checkbox" name="vin" class="switch is-rtl" [ngModel]="okVin">
+            <label for="activite-vin-honneur"></label>
+          </div>
+          <div class="control">
+            <label>Soirée</label>
+            <input id="activite-soiree" type="checkbox" name="soiree" class="switch is-rtl" [ngModel]="okSoiree">
+            <label for="activite-soiree"></label>
+          </div>
+        </div>
+      </div>
+      <div class="field">
+        <p id="field-button" class="control">
+          <button class="button is-primary" [disabled]="!invitationForm.valid">
+            Suivant
+          </button>
+        </p>
+      </div>
+    </form>
+  </div>
+  <div id="mobile-frame" class="is-hidden-tablet">
+    <div class="Entete">
+      <p class="title">Invitation au mariage de Dirane et Cyrielle</p>
+      <p class="description"><strong>Dirane et Cyrielle</strong> vous invitent à prendre part aux festivités de célébration leur union le <strong>26 Aout 2023</strong>.</p>
+    </div>
+
+    <form #mobileForm="ngForm" (ngSubmit)="onSubmit(mobileForm)">
+      <div class="field">
+        <label class="label">Serez-vous présent(e)?</label>
+        <div class="control">
+          <label class="radio">
+            <input type="radio" name="isComing" value="true" (change)="changeResponse()" [(ngModel)]="isComing">
+            Oui
+          </label>
+          <label class="radio">
+            <input type="radio" name="isComing" value="false" (change)="changeResponse()" [(ngModel)]="isComing">
+            Non
+          </label>
+        </div>
+      </div>
+      <div *ngIf="willCome" class="field">
+        <label class="label">Serez-vous accompagné(e)?</label>
+        <div class="control">
+          <label class="radio">
+            <input type="radio" name="hasGuest" value="true" (change)="changeGuestResponse()" [(ngModel)]="hasGuest">
+            Oui
+          </label>
+          <label class="radio">
+            <input type="radio" name="hasGuest" value="false" (change)="changeGuestResponse()" [(ngModel)]="hasGuest">
+            Non
+          </label>
+        </div>
+      </div>
+      <div *ngIf="withSomebody" class="field">
+        <label class="label">Nom de l'accompagnant(e)</label>
+        <p class="control has-icons-left">
+          <input class="input" type="text" name="guestLastName" ngModel required>
+          <span class="icon is-small is-left">
+            <i class="fas fa-user"></i>
+          </span>
+        </p>
+      </div>
+      <div *ngIf="withSomebody" class="field">
+        <label class="label">Prénom de l'accompagnant(e)</label>
+        <p class="control has-icons-left">
+          <input class="input" type="text" name="guestFirstName" ngModel>
+          <span class="icon is-small is-left">
+            <i class="fas fa-user"></i>
+          </span>
+        </p>
+      </div>
+      <div *ngIf="willCome" class="activites field">
+        <label class="label">Pour quelle(s) activité(s) serez vous présent(e)</label>
+        <div class="control">
+          <label>Mairie</label>
+          <input id="mairie" type="checkbox" name="mairie" class="switch is-rtl" [ngModel]="okMairie">
+          <label for="mairie"></label>
+        </div>
+        <div class="control">
+          <label>Eglise</label>
+          <input id="eglise" type="checkbox" name="eglise" class="switch is-rtl" [ngModel]="okEglise">
+          <label for="eglise"></label>
+        </div>
+        <div class="control">
+          <label>Vin d'honneur</label>
+          <input id="vin-honneur" type="checkbox" name="vin" class="switch is-rtl" [ngModel]="okVin">
+          <label for="vin-honneur"></label>
+        </div>
+        <div class="control">
+          <label>Soirée</label>
+          <input id="soiree" type="checkbox" name="soiree" class="switch is-rtl" [ngModel]="okSoiree">
+          <label for="soiree"></label>
+        </div>
+      </div>
+      <div class="field">
+        <p class="control">
+          <button class="button is-primary is-fullwidth" [disabled]="!mobileForm.valid">
+            Suivant
+          </button>
+        </p>
+      </div>
+    </form>
+  </div>
+</div>

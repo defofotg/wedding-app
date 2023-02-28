@@ -1,0 +1,27 @@
+/* You can add global styles to this file, and also import other style files */
+@charset "utf-8";
+// Import a Google Font
+@import url("https://fonts.googleapis.com/css2?family=Prompt&display=swap");
+
+@import "./variables.scss";
+
+@import "../node_modules/bulma/bulma.sass";
+@import "../node_modules/bulma-extensions/bulma-switch/src/sass/index";
+
+
+input[type=radio] {
+  accent-color: $primary;
+}
+
+.bg-coffee-cream {
+  background-color: $coffee-cream;
+}
+
+.bg-alert {
+  background-color: $light-alert;
+}
+
+.gray-box-shadow {
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px,
+  rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+}

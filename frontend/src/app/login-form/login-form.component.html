@@ -1,0 +1,31 @@
+<div class="main-layout">
+  <div id="identification">
+    <form #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)">
+      <div class="field">
+        <label class="label">Adresse mail</label>
+        <p class="control has-icons-left">
+          <input class="input" type="email" name="email" placeholder="Adresse mail" ngModel required>
+          <span class="icon is-small is-left">
+      <i class="fas fa-envelope"></i>
+    </span>
+        </p>
+      </div>
+      <div class="field">
+        <label class="label">Mot de passe</label>
+        <p class="control has-icons-left">
+          <input class="input" type="password" name="password" placeholder="Mot de passe" ngModel required>
+          <span class="icon is-small is-left">
+      <i class="fas fa-lock"></i>
+    </span>
+        </p>
+      </div>
+      <div class="field">
+        <p class="control">
+          <button class="button is-primary is-fullwidth" [disabled]="!loginForm.valid">
+            Login
+          </button>
+        </p>
+      </div>
+    </form>
+  </div>
+</div>
