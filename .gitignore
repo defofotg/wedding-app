@@ -75,4 +75,10 @@ yarn-error.log
 testem.log
 /typings
 
-/frontend/.angular/*
+/src/frontend/.angular/*
+/src/frontend/.DS_Store
+/src/frontend/dist
+/src/frontend/node
+/src/frontend/node_modules
+wedding
+

@@ -13,6 +13,6 @@ spring:
     datasource:
         url: jdbc:postgresql://localhost:5432/wedding
         username: postgres
-        password: mysecretpassword
+        password: password
 server:
-    port: 8081
+    port: 8080
