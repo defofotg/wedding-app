@@ -98,11 +98,30 @@
                 </configuration>
             </plugin>
         </plugins>
+        <finalName>Wedding_app</finalName>
     </build>
     <profiles>
         <profile>
+            <id>dev</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <properties>
+                <activatedProperties>dev</activatedProperties>
+            </properties>
+        </profile>
+
+        <profile>
+            <id>prod</id>
+            <properties>
+                <activatedProperties>prod</activatedProperties>
+            </properties>
+        </profile>
+        <profile>
             <id>build-frontend</id>
-            <activation><activeByDefault>true</activeByDefault></activation>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
             <build>
                 <plugins>
                     <plugin>
