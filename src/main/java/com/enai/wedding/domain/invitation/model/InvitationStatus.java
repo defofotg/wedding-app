@@ -1,4 +1,4 @@
-package com.enai.wedding.domain;
+package com.enai.wedding.domain.invitation.model;
 
 /**
  * @author Georges DEFO

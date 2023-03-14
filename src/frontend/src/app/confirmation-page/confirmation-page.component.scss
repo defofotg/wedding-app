@@ -1,0 +1,104 @@
+.main-layout {
+  height: 100%;
+  #mobile-frame, #desktop-frame {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  #mobile-frame {
+    .coming, .not-coming {
+      .content{
+        padding: 30px;
+      }
+      background-repeat: no-repeat;
+      background-position-y: 100%;
+      background-size: 130%;
+    }
+
+    .not-coming {
+      background-image: url("../../assets/sad.png");
+    }
+
+    .coming {
+      .recapitulatif {
+        margin-top: 30px;
+      }
+
+      .recapitulatif .field{
+        padding-left: 10px;
+        padding-right: 10px;
+      }
+
+      .notice-text {
+        border-radius: 5px;
+        padding: 10px;
+      }
+    }
+
+    .field {
+      margin-top: 30px;
+    }
+
+    #restriction-buttons {
+      padding-bottom: 30px;
+      .control {
+        display: flex;
+        justify-content: space-around;
+        button {
+          width: 150px;
+        }
+      }
+    }
+  }
+
+  #desktop-frame {
+    &.not-coming {
+      background-image: url("../../assets/sad.png");
+      background-repeat: no-repeat;
+      background-position-y: 100%;
+      background-size: 800px;
+    }
+    .coming{
+      background-color: #fdfaf5;
+      border-radius: 10px;
+      margin: 100px auto 0 auto;
+      height: 700px;
+      width: 600px;
+      padding: 50px 30px;
+
+      .content {
+        min-height: 90%;
+        .notice-text{
+          border-radius: 5px;
+          margin-bottom: 30px;
+          padding: 15px;
+          text-align: justify;
+        }
+
+        .recapitulatif .label {
+          margin-top: 30px;
+        }
+      }
+
+      #restriction-buttons {
+        margin-top: 30px;
+        p {
+          text-align: end;
+          button {
+            margin-left: 20px;
+            width: 150px;
+          }
+        }
+
+      }
+    }
+
+    .not-coming {
+      align-self: start;
+      padding-top: 20%;
+      width: 50%;
+    }
+  }
+}
+

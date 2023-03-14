@@ -1,0 +1,124 @@
+<div class="main-layout">
+  <div id="desktop-frame" [class.not-coming]="!coming" class="is-hidden-mobile">
+    <div *ngIf="coming" class="coming gray-box-shadow">
+      <div class="content">
+        <div class="notice">
+          <p class="subtitle">Information importante sur la diffusion des photos : </p>
+          <p class="notice-text bg-alert">Il est primordial qu'aucune photo de l'évènement ne soit partagée sur les réseaux sociaux.
+            Nous tenons énormément à notre intimité et vous remercions d'avance pour le respect de notre volonté. Merci d'avance.</p>
+        </div>
+        <div class="recapitulatif">
+          <p class="subtitle">Récapitulatif des informations fournies : </p>
+          <div class="field">
+            <label class="label">Vous :</label>
+            <p class="control has-icons-left">
+              <input class="input" type="text" disabled [ngModel]="invitationRecap?.invite" required>
+              <span class="icon is-small is-left">
+            <i class="fas fa-user"></i>
+          </span>
+            </p>
+          </div>
+
+          <div *ngIf="invitation?.hasGuest === 'true'" class="field">
+            <label class="label">Accompagnant :</label>
+            <p class="control has-icons-left">
+              <input class="input" type="text" disabled [ngModel]="invitationRecap?.accompagnant">
+              <span class="icon is-small is-left">
+            <i class="fas fa-user"></i>
+          </span>
+            </p>
+          </div>
+
+          <div class="field">
+            <label class="label">Activités choisies :</label>
+            <nav class="level is-mobile">
+              <div *ngFor="let event of this.invitationRecap?.events" class="level-item has-text-centered">
+                <div>
+                  <p class="heading">{{event}}</p>
+                </div>
+              </div>
+            </nav>
+          </div>
+        </div>
+      </div>
+      <div id="restriction-buttons" class="field">
+        <p class="control">
+          <button class="button is-secondary" (click)="onDecline()">
+            refuser
+          </button>
+
+          <button class="button is-primary" (click)="onClick()">
+            Confirmer
+          </button>
+        </p>
+      </div>
+    </div>
+    <div *ngIf="!coming" class="not-coming title">
+      <p>Ah dommage, nous sommes tristes de ne pas nous compter parmi nous.
+        A une autre occasion peut-être?</p>
+    </div>
+  </div>
+  <div id="mobile-frame" class="is-hidden-tablet">
+    <div *ngIf="coming" class="coming">
+      <div class="content">
+        <div class="notice">
+          <p class="subtitle">Information importante sur la diffusion des photos</p>
+          <p class="notice-text bg-alert">Il est primordial qu'aucune photo de l'évènement ne soit distribuée sur les réseaux sociaux.
+            Nous tenons énormément à notre intimité et vous remercions d'avance pour le respect de notre volonté. Merci d'avance.</p>
+        </div>
+        <div class="recapitulatif">
+          <p class="subtitle">Récapitulatif des informations que vous nous avez fourni</p>
+          <div class="field">
+            <label class="label">Vous :</label>
+            <p class="control has-icons-left">
+              <input class="input" type="text" disabled [ngModel]="invitationRecap?.invite" required>
+              <span class="icon is-small is-left">
+            <i class="fas fa-user"></i>
+          </span>
+            </p>
+          </div>
+
+          <div *ngIf="invitation?.hasGuest === 'true'" class="field">
+            <label class="label">Accompagnant :</label>
+            <p class="control has-icons-left">
+              <input class="input" type="text" disabled [ngModel]="invitationRecap?.accompagnant">
+              <span class="icon is-small is-left">
+            <i class="fas fa-user"></i>
+          </span>
+            </p>
+          </div>
+
+          <div class="field">
+            <label class="label">Activités choisies :</label>
+            <nav class="level is-mobile">
+              <div *ngFor="let event of this.invitationRecap?.events" class="level-item has-text-centered">
+                <div>
+                  <p class="heading">{{event}}</p>
+                </div>
+              </div>
+            </nav>
+          </div>
+        </div>
+        <div id="restriction-buttons" class="field">
+          <p class="control">
+            <button class="button is-secondary" (click)="onDecline()">
+              refuser
+            </button>
+
+            <button class="button is-primary" (click)="onClick()">
+              Confirmer
+            </button>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Block for people responding no -->
+    <div *ngIf="!coming" class="not-coming title">
+      <div class="content">
+        <p>Ah dommage, nous sommes tristes de ne pas nous compter parmi nous.
+          A une autre occasion peut-être?</p>
+      </div>
+    </div>
+  </div>
+</div>

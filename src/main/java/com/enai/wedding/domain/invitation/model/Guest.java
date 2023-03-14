@@ -1,20 +1,23 @@
-package com.enai.wedding.domain;
+package com.enai.wedding.domain.invitation.model;
 
 import java.util.Objects;
+import java.util.UUID;
 
 /**
  * @author Georges DEFO
  * @date 26/02/2023
  */
 public class Guest {
-    Long id;
+    UUID id;
     String firstName;
     String lastName;
+    GuestStatus status;
 
-    public Guest(final Long id, String firstName, String lastName) {
+    public Guest(final UUID id, final String firstName, final String lastName, final GuestStatus status) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
+        this.status = status;
     }
 
     public String getFirstName() {
@@ -25,8 +28,12 @@ public class Guest {
         return lastName;
     }
 
-    public Long getId() {
+    public UUID getId() {
         return id;
+    }
+
+    public GuestStatus getStatus() {
+        return status;
     }
 
     @Override
