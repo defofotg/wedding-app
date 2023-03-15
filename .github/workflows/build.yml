@@ -11,7 +11,11 @@ env:
   POSTGRESQL_DB: wedding
   POSTGRESQL_USER: postgres
   POSTGRESQL_PASSWORD: mysecretpassword
-  JAVA_VERSION: 1.17
+  JAVA_VERSION: 17
+  JAVA_DISTRIBUTION: temurin
+  SPRING_DATASOURCE_URL: 'jdbc:postgresql://localhost:5432/postgres'
+  SPRING_DATASOURCE_USERNAME: postgres
+  SPRING_DATASOURCE_PASSWORD: mysecretpassword
 
 jobs:
   build:
@@ -31,6 +35,7 @@ jobs:
       - uses: actions/setup-java@v3
         with:
           java-version: ${{ env.JAVA_VERSION }}
+          distribution: ${{ env.JAVA_DISTRIBUTION }}
       - name: Maven Clean Package
         run: |
           ./mvnw --no-transfer-progress clean package -P build-frontend
