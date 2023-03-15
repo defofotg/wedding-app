@@ -1,0 +1,31 @@
+// Set your brand colors
+$purple: #a59ad7;
+$pink: #fe76c2;
+$blue: #37c7f2;
+$blue-shiny: #2942de;
+$red: #ff1616;
+$yellow: #ffdd23;
+$green: green;
+$creamy: #fffaf1;
+$coffee-cream: #efdfd0;
+$brick: #982629;
+
+$light-alert: #e58d8d;
+
+//$smoky-black: #0f110c;
+$smoky-black: #1a1a1a;
+$smoky-black-secondary: #3a3a3a;
+
+// Update Bulma's global variables
+$family-sans-serif: "Prompt", sans-serif;
+
+$primary: $brick;
+$link: $blue;
+$text: black;
+
+// Update some of Bulma's component variables
+$body-background-color: $creamy;
+
+$input-focus-border-color: $coffee-cream;
+$input-focus-box-shadow-color: $coffee-cream;
+$input-color: $brick;

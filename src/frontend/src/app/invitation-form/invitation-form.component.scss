@@ -1,0 +1,57 @@
+form {
+  margin-top: 30px;
+
+  .field:last-child {
+    margin-top: 30px;
+  }
+}
+
+#desktop-frame {
+  background-color: #fdfaf5;
+  border-radius: 10px;
+  margin: 100px auto 0 auto;
+  min-height: 585px;
+  width: 600px;
+  padding: 30px;
+
+  form {
+    #fields {
+      min-height: 280px;
+    }
+
+    #field-button {
+      button {
+        width: 130px;
+      }
+      text-align: end;
+    }
+
+  }
+
+  #activites {
+    .control {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+    }
+
+    .label{
+      margin-top: 30px;
+    }
+  }
+}
+
+#mobile-frame {
+  padding: 30px;
+  .activites{
+    .control {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+    }
+
+    .label{
+      margin-top: 30px;
+    }
+  }
+}
