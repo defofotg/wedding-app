@@ -28,10 +28,10 @@ jobs:
         distribution: 'temurin'
         cache: maven
     - name: Build with Maven
-      env:
-        SPRING_DATASOURCE_URL: 'jdbc:postgresql://postgres:5432/postgres'
-        SPRING_DATASOURCE_USERNAME: 'postgres'
-        SPRING_DATASOURCE_PASSWORD: 'mysecretpassword'
+#      env:
+ #       SPRING_DATASOURCE_URL: 'jdbc:postgresql://postgres:5432/postgres'
+  #      SPRING_DATASOURCE_USERNAME: 'postgres'
+   #     SPRING_DATASOURCE_PASSWORD: 'mysecretpassword'
       run: mvn clean install -P dev
 
     # Optional: Uploads the full dependency graph to GitHub to improve the quality of Dependabot alerts this repository can receive
