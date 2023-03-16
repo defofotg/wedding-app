@@ -105,7 +105,7 @@
                 <version>2.5.2</version>
                 <configuration>
                     <from>
-                        <image>temurin:17</image>
+                        <image>eclipse-temurin:17-jdk</image>
                     </from>
                     <container>
                         <ports>
@@ -133,7 +133,7 @@
                         <version>2.5.2</version>
                         <configuration>
                             <from>
-                                <image>temurin:17</image>
+                                <image>eclipse-temurin:17-jdk</image>
                             </from>
                             <container>
                                 <ports>
@@ -185,7 +185,7 @@
                         <version>2.5.2</version>
                         <configuration>
                             <from>
-                                <image>temurin:17</image>
+                                <image>eclipse-temurin:17-jdk</image>
                             </from>
                             <container>
                                 <ports>
