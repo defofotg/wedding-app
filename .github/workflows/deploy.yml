@@ -12,8 +12,12 @@ env:
   POSTGRESQL_DB: wedding
   POSTGRESQL_USER: postgres
   POSTGRESQL_PASSWORD: mysecretpassword
+  SPRING_DATASOURCE_URL: 'jdbc:postgresql://localhost:5432/postgres'
+  SPRING_DATASOURCE_USERNAME: postgres
+  SPRING_DATASOURCE_PASSWORD: mysecretpassword
   # Java
   JAVA_VERSION: 17
+  JAVA_DISTRIBUTION: temurin
   # DockerHub
   DOCKER_HUB_USERNAME: gdefofot
   # AWS & Elastic Bean Stalk
@@ -50,6 +54,7 @@ jobs:
         uses: actions/setup-java@v3
         with:
           java-version: ${{ env.JAVA_VERSION }}
+          distribution: ${{ env.JAVA_DISTRIBUTION }}
 
       - name: Build Number
         id: build-number

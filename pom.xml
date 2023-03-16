@@ -112,6 +112,7 @@
                             <port>8080</port>
                         </ports>
                         <format>OCI</format>
+                        <mainClass>com.enai.wedding.WeddingApplication</mainClass>
                     </container>
                 </configuration>
             </plugin>
