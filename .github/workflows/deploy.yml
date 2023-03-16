@@ -12,6 +12,9 @@ env:
   POSTGRESQL_DB: wedding
   POSTGRESQL_USER: postgres
   POSTGRESQL_PASSWORD: mysecretpassword
+  SPRING_DATASOURCE_URL: 'jdbc:postgresql://localhost:5432/postgres'
+  SPRING_DATASOURCE_USERNAME: postgres
+  SPRING_DATASOURCE_PASSWORD: mysecretpassword
   # Java
   JAVA_VERSION: 17
   JAVA_DISTRIBUTION: temurin
