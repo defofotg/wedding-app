@@ -43,10 +43,10 @@ jobs:
           script: |
             set +x
             echo "#####  Remove old version #######"
-            (cd site-vitrine && docker-compose rm -f wedding-app ) || (echo "nohting to delete")
+            (cd ${{ secrets.PATH }} && docker-compose rm -f wedding-app && cd ) || (echo "nohting to delete")
             echo "##### Deploy version ${{ github.ref_name }}#####"
-            cd site-vitrine && sed -i 's/TAG_WEDDING=*/TAG_WEDDING=${{ github.ref_name }}/g' .env
-            cd site-vitrine && docker-compose up -d  wedding-app
+            cd ${{ secrets.PATH }} && sed -i 's/TAG_WEDDING=.*/TAG_WEDDING=${{ github.ref_name }}/g' .env
+            cd ${{ secrets.PATH }} && docker-compose up -d  wedding-app
       - uses: 8398a7/action-slack@v3
         with:
           status: ${{ job.status }}
