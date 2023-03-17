@@ -13,9 +13,9 @@ env:
   POSTGRESQL_PASSWORD: mysecretpassword
   JAVA_VERSION: 17
   JAVA_DISTRIBUTION: temurin
-  SPRING_DATASOURCE_URL: 'jdbc:postgresql://localhost:5432/postgres'
-  SPRING_DATASOURCE_USERNAME: postgres
-  SPRING_DATASOURCE_PASSWORD: mysecretpassword
+  #SPRING_DATASOURCE_URL: 'jdbc:postgresql://localhost:5432/postgres'
+  #SPRING_DATASOURCE_USERNAME: postgres
+  #SPRING_DATASOURCE_PASSWORD: mysecretpassword
 
 jobs:
   build:
