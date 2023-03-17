@@ -40,5 +40,5 @@ jobs:
         uses: docker/build-push-action@v4
         with:
           push: true
-          tags: ${{ env.DOCKER_HUB_USERNAME }}/wedding:latest
+          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/wedding:latest
       
