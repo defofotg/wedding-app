@@ -10,7 +10,7 @@ env:
   POSTGRESQL_PASSWORD: mysecretpassword
 
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
     steps:
       - name: Docker Login
@@ -29,6 +29,9 @@ jobs:
           docker build -t ${{ secrets.DOCKER_HUB_USERNAME }}/wedding:${{ github.ref_name }} --network=wedding-network .
           docker push ${{ secrets.DOCKER_HUB_USERNAME }}/wedding:${{ github.ref_name }}
           
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
       - name: multiple command
         uses: appleboy/ssh-action@v0.1.8
         with:
