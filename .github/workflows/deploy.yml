@@ -32,7 +32,7 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: multiple command
+      - name: Deploy in production
         uses: appleboy/ssh-action@v0.1.8
         with:
           host: ${{ secrets.HOST }}
