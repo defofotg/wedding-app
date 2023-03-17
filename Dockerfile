@@ -1,6 +1,6 @@
 FROM maven:3.8.4-openjdk-17-slim AS buildstage
 
-ENV  SPRING_DATASOURCE_URL='jdbc:postgresql://wedding-app-postgres-1:5432/postgres' \
+ENV  SPRING_DATASOURCE_URL='jdbc:postgresql://postgres:5432/postgres' \
     SPRING_DATASOURCE_USERNAME=postgres \
     SPRING_DATASOURCE_PASSWORD=mysecretpassword
 
