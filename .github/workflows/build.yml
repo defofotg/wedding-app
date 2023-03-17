@@ -29,7 +29,7 @@ jobs:
         run: |
           echo "deploy postgres"
           docker network create wedding-network
-          docker run --name postgres -e POSTGRES_DB=${{ env.POSTGRESQL_DB }} -e POSTGRES_USER=${{ env.POSTGRESQL_USER }} -e  POSTGRES_PASSWORD=${{ env.POSTGRESQL_USER }} --network=wedding-network postgres:12
+          docker run --d --name postgres -e POSTGRES_DB=${{ env.POSTGRESQL_DB }} -e POSTGRES_USER=${{ env.POSTGRESQL_USER }} -e  POSTGRES_PASSWORD=${{ env.POSTGRESQL_USER }} --network=wedding-network postgres:12
           sleep 5
           docker build -t ${{ secrets.DOCKER_HUB_USERNAME }}/wedding:latest --network=wedding-network .
           docker push ${{ secrets.DOCKER_HUB_USERNAME }}/wedding:latest
