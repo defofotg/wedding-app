@@ -35,4 +35,11 @@ jobs:
           sleep 5
           docker build -t ${{ secrets.DOCKER_HUB_USERNAME }}/wedding:latest --network=wedding-network .
           docker push ${{ secrets.DOCKER_HUB_USERNAME }}/wedding:latest
-      
+      - name: slack push image notification
+        uses: 8398a7/action-slack@v3
+        with:
+          status: ${{ job.status }}
+          fields: repo,message,commit,author,action,eventName,ref,workflow,job,took
+          text: ':white_check_mark: pushed gdefofot/springboot-angular-wedding-app:${{steps.build-number.outputs.BUILD_NUMBER}} to docker hub... https://hub.docker.com/repository/docker/gdefofot/springboot-angular-wedding-app'
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
