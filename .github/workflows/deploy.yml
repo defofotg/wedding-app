@@ -30,7 +30,7 @@ jobs:
           docker push ${{ secrets.DOCKER_HUB_USERNAME }}/wedding:${{ github.ref_name }}
           
   deploy:
-    needs: build
+  #  needs: build
     runs-on: ubuntu-latest
     steps:
       - name: Deploy in production
@@ -45,7 +45,7 @@ jobs:
             echo "#####  Remove old version #######"
             (cd site-vitrine && docker-compose rm -f wedding-app ) || (echo "nohting to delete")
             echo "##### Deploy version ${{ github.ref_name }}#####"
-            export TAG_WEDDING=${{ github.ref_name }} && docker-compose up -d  wedding-app
+            (export TAG_WEDDING=${{ github.ref_name }}) &&  (cd site-vitrine && docker-compose up -d  wedding-app)
 
       - uses: 8398a7/action-slack@v3
         with:
