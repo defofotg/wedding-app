@@ -30,6 +30,7 @@ jobs:
           docker push ${{ secrets.DOCKER_HUB_USERNAME }}/wedding:${{ github.ref_name }}
           
   deploy:
+    needs: build
     runs-on: ubuntu-latest
     steps:
       - name: Deploy in production
