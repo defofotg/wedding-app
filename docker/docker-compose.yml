@@ -1,7 +1,7 @@
 version: '3.3'
 services:
   wedding-app:
-    image: gdefofot/springboot-angular-wedding-app:16.3.2023.21.48.6
+    image: gdefofot/springboot-angular-wedding-app:17.3.2023.12.39.21
     ports:
       - "8090:8080"
     restart: "always"
