@@ -3,6 +3,8 @@ package com.enai.wedding.domain.invitation.service;
 import com.enai.wedding.domain.invitation.model.*;
 import com.enai.wedding.domain.invitation.repository.InvitationRepository;
 
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.Set;
 import java.util.UUID;
 
@@ -46,6 +48,14 @@ public class DomainInvitationService implements InvitationService {
     public Invitation getInvitation(String email, String token) {
         return invitationRepository.findInvitationByEmailAndToken(email, token)
                 .orElseThrow(() -> new DomainException("No invitation matches this credentials!"));
+    }
+
+    @Override
+    public void createInvitations(InputStream list) throws IOException {
+        if (list == null) {
+            throw new RuntimeException();
+        }
+        invitationRepository.bulkSave(list);
     }
 
     private Invitation getInvitation(UUID id) {

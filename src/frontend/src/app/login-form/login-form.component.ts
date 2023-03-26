@@ -33,11 +33,9 @@ export class LoginFormComponent implements OnInit {
     }
 
     let user = form?.form?.value as User;
-    console.log("user", user)
 
     this.authService.signIn(user).subscribe({
       next: (data) => {
-        console.log(data);
         this.storageService.saveUser(data);
         this.toastrService.success('Connexion réussie!');
         this.router.navigate(['/invitation']);
