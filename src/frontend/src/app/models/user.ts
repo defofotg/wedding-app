@@ -12,4 +12,5 @@ export interface UserInfo {
   firstName: string;
   email: string;
   token: string;
+  invitationId: string;
 }

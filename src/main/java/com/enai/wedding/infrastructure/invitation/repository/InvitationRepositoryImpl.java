@@ -24,6 +24,11 @@ public class InvitationRepositoryImpl implements InvitationRepository {
     }
 
     @Override
+    public Optional<Invitation> findInvitationByIdAndToken(UUID id, String token) {
+        return invitationRepository.findByIdAndSecret(id, token).map(invitationMapper::toModel);
+    }
+
+    @Override
     public Optional<Invitation> findInvitationByEmailAndToken(String login, String secret) {
         return invitationRepository.findByLoginAndSecret(login, secret).map(invitationMapper::toModel);
     }

@@ -48,16 +48,16 @@ export class ConfirmationPageComponent implements OnInit {
     let events = [];
     if (invitation != null) {
       if (invitation.mairie){
-        events.push("Mairie");
+        events.push("MAIRIE");
       }
       if (invitation.eglise){
-        events.push("Eglise");
+        events.push("EGLISE");
       }
       if (invitation.vin){
-        events.push("Vin");
+        events.push("VIN");
       }
       if (invitation.soiree){
-        events.push("Soirée");
+        events.push("SOIREE");
       }
     }
     return events;
@@ -66,13 +66,11 @@ export class ConfirmationPageComponent implements OnInit {
   onClick() {
     if(this.invitation && this.invitationRecap) {
       const invitationDTO = {
-        "lastName": this.user?.lastName,
-        "firstName": this.user?.firstName,
-        "guestLastName" : this.invitation.guestLastName,
-        "guestFirstName" : this.invitation.guestFirstName,
+        "invitationId": this.user?.invitationId,
         "events" : this.invitationRecap?.events,
-        "token" : this.user?.token,
-        "email" : this.user?.email
+        "lastName" : this.invitation.guestLastName,
+        "firstName" : this.invitation.guestFirstName,
+        "secret" : this.user?.token
       } as InvitationDTO;
 
       this.invitationService.replyToInvitation(invitationDTO).subscribe({

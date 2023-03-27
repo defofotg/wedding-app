@@ -21,7 +21,7 @@ export class StorageService {
   public clean(): void {
     this.setValue(false);
     window.sessionStorage.clear();
-    this.userInfoSubject.next({ firstName: '', lastName: '', token:'', email: '' });
+    this.userInfoSubject.next({ firstName: '', lastName: '', token:'', email: '', invitationId:'' });
   }
 
   public saveUser(user: UserTokenInfo): void {

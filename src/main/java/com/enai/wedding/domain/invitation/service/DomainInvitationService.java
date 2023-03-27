@@ -38,8 +38,8 @@ public class DomainInvitationService implements InvitationService {
     }
 
     @Override
-    public void acceptInvitation(UUID id, Set<Event> eventSet, Guest attendant) throws DomainException {
-        final Invitation invitation = getInvitation(id);
+    public void acceptInvitation(UUID id, Set<Event> eventSet, Guest attendant, String secret) throws DomainException {
+        final Invitation invitation = getInvitation(id, secret);
         invitation.replyToInvitation(attendant, eventSet);
         invitationRepository.save(invitation);
     }
@@ -62,5 +62,11 @@ public class DomainInvitationService implements InvitationService {
         return invitationRepository
                 .findById(id)
                 .orElseThrow(() -> new DomainException("Invitation with given id doesn't exist"));
+    }
+
+    private Invitation getInvitation(UUID id, String token) {
+        return invitationRepository
+                .findInvitationByIdAndToken(id, token)
+                .orElseThrow(() -> new DomainException("Invitation with given id and token doesn't exist"));
     }
 }

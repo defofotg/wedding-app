@@ -4,8 +4,13 @@ import com.enai.wedding.domain.invitation.model.Event;
 import lombok.Builder;
 
 import java.util.Set;
-import java.util.UUID;
 
 @Builder
-public record AcceptInvitationRequest(UUID id, Set<Event> events, String firstName, String lastName){
+public record AcceptInvitationRequest(
+        String invitationId,
+        Set<Event> events,
+        String firstName,
+        String lastName,
+        String secret
+){
 }

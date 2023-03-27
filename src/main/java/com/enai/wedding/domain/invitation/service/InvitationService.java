@@ -13,7 +13,7 @@ public interface InvitationService {
 
     UUID createInvitation(String login, String secret, Guest guest);
     void refuseInvitation(UUID id);
-    void acceptInvitation(UUID id, Set<Event> eventSet, Guest attendant);
+    void acceptInvitation(UUID id, Set<Event> eventSet, Guest attendant, String secret);
     Invitation getInvitation(String email, String token);
     void createInvitations(InputStream list) throws IOException;
 }

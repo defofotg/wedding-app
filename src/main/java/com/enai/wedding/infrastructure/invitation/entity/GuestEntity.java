@@ -24,6 +24,6 @@ public class GuestEntity {
     @NotBlank
     @Column(unique = true, nullable = false)
     String lastName;
-    //@Enumerated(EnumType.STRING)
+    @Enumerated(EnumType.STRING)
     GuestStatus status;
 }

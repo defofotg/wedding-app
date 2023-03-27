@@ -10,4 +10,6 @@ import java.util.UUID;
 @Repository
 public interface SpringDataJPAInvitationRepository extends JpaRepository<InvitationEntity, UUID> {
     Optional<InvitationEntity> findByLoginAndSecret(String login, String secret);
+
+    Optional<InvitationEntity> findByIdAndSecret(UUID id, String secret);
 }

@@ -1,5 +1,6 @@
 package com.enai.wedding.application.invitation.rest;
 
+import antlr.StringUtils;
 import com.enai.wedding.domain.invitation.model.Guest;
 import com.enai.wedding.application.invitation.dto.AcceptInvitationRequest;
 import com.enai.wedding.application.invitation.dto.CreateInvitationRequest;
@@ -10,6 +11,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Objects;
 import java.util.UUID;
 
 @RequiredArgsConstructor
@@ -40,16 +42,21 @@ public class InvitationController {
     }
 
     @PostMapping(value = "/{id}/complete", consumes = MediaType.APPLICATION_JSON_VALUE)
-    void acceptInvitation(@PathVariable final UUID id, @RequestBody final AcceptInvitationRequest acceptInvitationRequest) {
+    void acceptInvitation(@PathVariable final String id, @RequestBody final AcceptInvitationRequest acceptInvitationRequest) {
         invitationService.acceptInvitation(
-                id,
+                UUID.fromString(id),
                 acceptInvitationRequest.events(),
-                new Guest(
+                hasGuest(acceptInvitationRequest) ? new Guest(
                         UUID.randomUUID(),
                         acceptInvitationRequest.firstName(),
                         acceptInvitationRequest.lastName(),
                         GuestStatus.ATTENDANT
-                )
+                ) : null,
+                acceptInvitationRequest.secret()
         );
+    }
+
+    private boolean hasGuest(AcceptInvitationRequest request) {
+        return request.lastName() != null && !request.lastName().isEmpty();
     }
 }

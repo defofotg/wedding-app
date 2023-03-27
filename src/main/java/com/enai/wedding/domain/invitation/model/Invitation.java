@@ -36,7 +36,9 @@ public class Invitation {
 
     public void replyToInvitation(Guest attendant, Set<Event> eventSet){
         validateState();
-        this.guests.add(attendant);
+        if (attendant != null){
+            this.guests.add(attendant);
+        }
         events = eventSet;
         confirmInvitation();
     }
