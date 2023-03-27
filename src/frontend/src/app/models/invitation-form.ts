@@ -16,12 +16,10 @@ export interface Recapitulatif {
 }
 
 export interface InvitationDTO {
-  lastName: string;
-  firstName: string;
-  guestFirstName: string;
-  guestLastName: string;
+  invitationId: string;
   events: string[];
-  token: string;
-  email: string;
+  firstName: string;
+  lastName: string;
+  secret: string;
 
 }

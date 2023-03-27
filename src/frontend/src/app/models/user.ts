@@ -1,5 +1,5 @@
 export interface User {
-  email: string;
+  login: string;
   password: string;
 }
 
@@ -12,4 +12,5 @@ export interface UserInfo {
   firstName: string;
   email: string;
   token: string;
+  invitationId: string;
 }

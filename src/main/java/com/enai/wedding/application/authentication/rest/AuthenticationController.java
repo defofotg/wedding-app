@@ -19,8 +19,8 @@ public class AuthenticationController {
     private final AuthenticationService authenticationService;
 
     @PostMapping(value="/login", produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
-    LoginResponse createInvitation(@RequestBody final LoginRequest loginRequest) {
+    LoginResponse authenticate(@RequestBody final LoginRequest loginRequest) {
         AuthInfo authInfo = authenticationService.authenticate(loginRequest.login(), loginRequest.password());
-        return new LoginResponse(authInfo.firstName(), authInfo.lastName(), authInfo.email(), authInfo.token());
+        return new LoginResponse(authInfo.firstName(), authInfo.lastName(), authInfo.email(), authInfo.token(), authInfo.invitationId().toString());
     }
 }

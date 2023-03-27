@@ -35,10 +35,9 @@ public class InvitationEntity {
     @JoinColumn(name = "invitation_id")
     private Set<GuestEntity> guests = new HashSet<>();
     @ElementCollection(targetClass = Event.class)
-    //@Enumerated(EnumType.STRING)
     private Set<Event> events = new HashSet<>();
     @NotNull
     @Column(nullable = false)
-    //@Enumerated(EnumType.STRING)
+    @Enumerated(EnumType.STRING)
     private InvitationStatus status;
 }

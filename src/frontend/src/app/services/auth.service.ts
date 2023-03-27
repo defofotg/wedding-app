@@ -20,13 +20,13 @@ export class AuthService {
 
   public signIn(user: User): Observable<UserTokenInfo> {
     return this.http.post<UserTokenInfo>(
-      AUTH_API + 'signin',
+      AUTH_API + 'login',
       user,
       httpOptions
     );
   }
 
   public logout(): Observable<any> {
-    return this.http.post(AUTH_API + 'signout', {}, httpOptions);
+    return this.http.post(AUTH_API + 'logout', {}, httpOptions);
   }
 }

@@ -21,7 +21,7 @@ export class StorageService {
   public clean(): void {
     this.setValue(false);
     window.sessionStorage.clear();
-    this.userInfoSubject.next({ firstName: '', lastName: '', token:'', email: '' });
+    this.userInfoSubject.next({ firstName: '', lastName: '', token:'', email: '', invitationId:'' });
   }
 
   public saveUser(user: UserTokenInfo): void {
@@ -39,9 +39,8 @@ export class StorageService {
   public getUser(): UserInfo {
     const user = window.sessionStorage.getItem(USER_KEY);
     if (user) {
-      return (JSON.parse(user) as UserTokenInfo)?.userInfo;
+      return JSON.parse(user) as UserInfo;
     }
-
     return {} as UserInfo;
   }
 

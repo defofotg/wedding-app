@@ -6,9 +6,10 @@ import com.enai.wedding.domain.invitation.model.Invitation;
 import lombok.Builder;
 
 import java.util.Objects;
+import java.util.UUID;
 
 @Builder
-public record AuthInfo(String firstName, String lastName, String email, String token) {
+public record AuthInfo(String firstName, String lastName, String email, String token, UUID invitationId) {
     public AuthInfo(Invitation invitation) {
         this(invitation.getGuests()
                         .stream()
@@ -19,7 +20,9 @@ public record AuthInfo(String firstName, String lastName, String email, String t
                         .filter(guest -> Objects.nonNull(guest) && GuestStatus.MAIN.equals(guest.getStatus()))
                         .map(Guest::getLastName).findFirst().orElse(null),
                 invitation.getLogin(),
-                invitation.getSecret()
+                invitation.getSecret(),
+                invitation.getId()
+
         );
     }
 }
