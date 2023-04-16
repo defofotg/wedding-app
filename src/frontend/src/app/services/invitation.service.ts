@@ -15,11 +15,16 @@ export class InvitationService {
 
   constructor(private http: HttpClient) {}
 
-  public replyToInvitation(reply: InvitationDTO): Observable<any> {
+  public acceptInvitation(reply: InvitationDTO): Observable<any> {
     return this.http.post<InvitationDTO>(
       INVITATION_API + reply.invitationId +'/complete',
       reply,
       httpOptions
     );
+  }
+
+  public declineInvitation(invitationId: string): Observable<any> {
+    return this.http.post<any>(
+      INVITATION_API + invitationId +'/decline', {});
   }
 }

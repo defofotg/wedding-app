@@ -30,12 +30,12 @@ export class InvitationFormComponent {
     if (invitationFormContent.isComing === 'false') {
       this.router.navigate(
         ['/confirmation'],
-        { queryParams: { present: 'nope' } });
+        { queryParams: { present: 'no' } });
     } else {
       this.storageService.saveInvitationForm(invitationFormContent);
       this.router.navigate(
         ['/confirmation'],
-        { queryParams: { present: 'yup' } });
+        { queryParams: { present: 'yes' } });
     }
   }
 

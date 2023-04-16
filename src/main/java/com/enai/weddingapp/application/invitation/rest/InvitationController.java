@@ -8,6 +8,7 @@ import com.enai.weddingapp.domain.invitation.model.GuestStatus;
 import com.enai.weddingapp.domain.invitation.service.InvitationService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.UUID;
@@ -35,8 +36,9 @@ public class InvitationController {
     }
 
     @PostMapping ( "/{id}/decline")
-    void declineInvitation(@PathVariable final UUID id) {
+    ResponseEntity<String> declineInvitation(@PathVariable final UUID id) {
         invitationService.refuseInvitation(id);
+        return ResponseEntity.ok().build();
     }
 
     @PostMapping(value = "/{id}/complete", consumes = MediaType.APPLICATION_JSON_VALUE)

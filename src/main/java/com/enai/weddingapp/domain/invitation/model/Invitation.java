@@ -26,6 +26,7 @@ public class Invitation {
 
     public void refuseInvitation(){
         validateState();
+
         status = InvitationStatus.DECLINED;
     }
 
