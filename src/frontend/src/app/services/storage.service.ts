@@ -36,6 +36,10 @@ export class StorageService {
     window.sessionStorage.setItem(INVITE_KEY, JSON.stringify(invitationForm));
   }
 
+  public deleteInvitationForm(): void {
+    window.sessionStorage.removeItem(INVITE_KEY);
+  }
+
   public getUser(): UserInfo {
     const user = window.sessionStorage.getItem(USER_KEY);
     if (user) {

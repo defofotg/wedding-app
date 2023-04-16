@@ -32,14 +32,20 @@ export class ConfirmationPageComponent implements OnInit {
     this.route.queryParams
       .pipe(filter(params => params.present))
       .subscribe(params => {
-        this.coming = params.present === 'yup';
+
         this.invitation = this.storage.getInvitationForm();
         this.user = this.storage.getUser();
-        this.invitationRecap = {
-          "invite" :  this.user.firstName + " " + this.user.lastName,
-          "accompagnant" : this.invitation.guestFirstName + " " + this.invitation.guestLastName,
-          "events" : this.getEvents(this.invitation)
-        } as Recapitulatif;
+
+        if(params.present !== 'yes') {
+          this.onDecline();
+        } else {
+          this.coming = params.present === 'yes';
+          this.invitationRecap = {
+            "invite" :  this.user.firstName + " " + this.user.lastName,
+            "accompagnant" : this.invitation.guestFirstName + " " + this.invitation.guestLastName,
+            "events" : this.getEvents(this.invitation)
+          } as Recapitulatif;
+        }
       });
 
   }
@@ -73,7 +79,7 @@ export class ConfirmationPageComponent implements OnInit {
         "secret" : this.user?.token
       } as InvitationDTO;
 
-      this.invitationService.replyToInvitation(invitationDTO).subscribe({
+      this.invitationService.acceptInvitation(invitationDTO).subscribe({
           next: () => {
             this.storage.clean();
             this.toastrService.success('Formulaire soumis avec succès');
@@ -86,7 +92,13 @@ export class ConfirmationPageComponent implements OnInit {
   }
 
   onDecline(){
-    this.router.navigate(
-      ['/invitation']);
+    this.invitationService.declineInvitation(this.user!.invitationId).subscribe({
+        next: () => {
+          this.storage.clean();
+          this.toastrService.success('Formulaire soumis avec succès');
+        },
+        error: () => this.toastrService.error('Erreur lors de la soumission du formulaire')
+      }
+    );
   }
 }
