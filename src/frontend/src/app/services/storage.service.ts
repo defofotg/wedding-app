@@ -65,6 +65,17 @@ export class StorageService {
     return false;
   }
 
+  public isAdmin(): boolean {
+    const user = window.sessionStorage.getItem(USER_KEY);
+
+    if (user) {
+      const connectedUser = JSON.parse(user) as UserInfo;
+      //TODO Spring security has to be set
+      return connectedUser.email === 'diranetafen@yahoo.com';
+    }
+    return false;
+  }
+
   setValue(newValue: boolean): void {
     this.loggedInInfo.next(newValue);
   }

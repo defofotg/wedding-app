@@ -1,0 +1,35 @@
+<div class="container is-fluid">
+  <h1 class="title mt-5">Backoffice</h1>
+  <h2 class="subtitle mt-3">Suivi des invitations</h2>
+
+  <button class="button is-primary is-pulled-right mb-5" (click)="downloadCSV()">
+    Exporter au format CSV
+  </button>
+
+
+    <table class="table is-fullwidth ">
+      <thead>
+      <tr>
+        <th>Invité</th>
+        <th>Réponse</th>
+        <th>Accompagnant</th>
+        <th>Mairie</th>
+        <th>Eglise</th>
+        <th>Vin d'honneur</th>
+        <th>Soirée</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let invitation of invitationTableItems">
+        <td><strong>{{ invitation.mainGuest }}</strong></td>
+        <td>{{ invitation.answer }}</td>
+        <td>{{ invitation.attendantGuest }}</td>
+        <td>{{ invitation.mairie }}</td>
+        <td>{{ invitation.eglise }}</td>
+        <td>{{ invitation.vin }}</td>
+        <td>{{ invitation.soiree }}</td>
+      </tr>
+      </tbody>
+    </table>
+</div>
+

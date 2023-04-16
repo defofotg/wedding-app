@@ -5,12 +5,14 @@ import com.enai.weddingapp.application.invitation.dto.AcceptInvitationRequest;
 import com.enai.weddingapp.application.invitation.dto.CreateInvitationRequest;
 import com.enai.weddingapp.application.invitation.dto.CreateInvitationResponse;
 import com.enai.weddingapp.domain.invitation.model.GuestStatus;
+import com.enai.weddingapp.domain.invitation.model.Invitation;
 import com.enai.weddingapp.domain.invitation.service.InvitationService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.UUID;
 
 @RequiredArgsConstructor
@@ -46,7 +48,7 @@ public class InvitationController {
         invitationService.acceptInvitation(
                 UUID.fromString(id),
                 acceptInvitationRequest.events(),
-                hasGuest(acceptInvitationRequest) ? new Guest(
+                acceptInvitationRequest.hasGuest() ? new Guest(
                         UUID.randomUUID(),
                         acceptInvitationRequest.firstName(),
                         acceptInvitationRequest.lastName(),
@@ -56,7 +58,8 @@ public class InvitationController {
         );
     }
 
-    private boolean hasGuest(AcceptInvitationRequest request) {
-        return request.lastName() != null && !request.lastName().isEmpty();
+    @GetMapping
+    ResponseEntity<List<Invitation>> getAll(){
+        return ResponseEntity.ok(invitationService.retrieveInvitations());
     }
 }

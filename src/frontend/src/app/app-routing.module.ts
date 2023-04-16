@@ -4,6 +4,8 @@ import {LoginFormComponent} from "./login-form/login-form.component";
 import {InvitationFormComponent} from "./invitation-form/invitation-form.component";
 import {ConfirmationPageComponent} from "./confirmation-page/confirmation-page.component";
 import {AuthGuard} from "./guards/auth.guard";
+import {BackofficeComponent} from "./backoffice/backoffice.component";
+import {AdminGuard} from "./guards/admin.guard";
 
 const routes: Routes = [
   {
@@ -14,6 +16,9 @@ const routes: Routes = [
   },
   {
     path: 'confirmation', component: ConfirmationPageComponent, canActivate: [AuthGuard]
+  },
+  {
+    path: 'backoffice', component: BackofficeComponent, canActivate: [AdminGuard]
   },
   {
     path: '', redirectTo: 'login', pathMatch: 'full'
