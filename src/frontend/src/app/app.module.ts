@@ -10,13 +10,15 @@ import { ToastrModule } from "ngx-toastr";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import { InvitationFormComponent } from './invitation-form/invitation-form.component';
 import { ConfirmationPageComponent } from './confirmation-page/confirmation-page.component';
+import { BackofficeComponent } from './backoffice/backoffice.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginFormComponent,
     InvitationFormComponent,
-    ConfirmationPageComponent
+    ConfirmationPageComponent,
+    BackofficeComponent
   ],
   imports: [
     BrowserModule,

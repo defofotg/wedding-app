@@ -13,4 +13,8 @@ public record AcceptInvitationRequest(
         String lastName,
         String secret
 ){
+
+    public boolean hasGuest() {
+        return lastName() != null && !lastName().isEmpty();
+    }
 }
