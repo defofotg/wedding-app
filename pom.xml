@@ -17,6 +17,7 @@
         <java.version>17</java.version>
         <org.mapstruct.version>1.4.1.Final</org.mapstruct.version>
         <lombok.version>1.18.22</lombok.version>
+        <liquibase.version>4.21.1</liquibase.version>
         <commons-csv.version>1.8</commons-csv.version>
         <app.image.name>springboot-angular-wedding-app</app.image.name>
         <app.image.tag/>
@@ -40,6 +41,12 @@
             <artifactId>postgresql</artifactId>
             <scope>runtime</scope>
         </dependency>
+        <dependency>
+            <groupId>org.liquibase</groupId>
+            <artifactId>liquibase-core</artifactId>
+            <version>${liquibase.version}</version>
+        </dependency>
+
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
