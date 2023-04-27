@@ -69,7 +69,7 @@ export class ConfirmationPageComponent implements OnInit {
     return events;
   }
 
-  onClick() {
+  submit() {
     if(this.invitation && this.invitationRecap) {
       const invitationDTO = {
         "invitationId": this.user?.invitationId,
@@ -89,6 +89,10 @@ export class ConfirmationPageComponent implements OnInit {
         }
       );
     }
+  }
+
+  goBack() {
+    this.router.navigate(['/invitation']);
   }
 
   onDecline(){

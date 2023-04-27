@@ -43,11 +43,11 @@
       </div>
       <div id="restriction-buttons" class="field">
         <p class="control">
-          <button class="button is-secondary">
-            refuser
+          <button class="button is-secondary" (click)="goBack()">
+            Retour
           </button>
 
-          <button class="button is-primary" (click)="onClick()">
+          <button class="button is-primary" (click)="submit()">
             Confirmer
           </button>
         </p>
@@ -101,11 +101,11 @@
         </div>
         <div id="restriction-buttons" class="field">
           <p class="control">
-            <button class="button is-secondary" (click)="onDecline()">
+            <button class="button is-secondary" (click)="goBack()">
               Retour
             </button>
 
-            <button class="button is-primary" (click)="onClick()">
+            <button class="button is-primary" (click)="submit()">
               Confirmer
             </button>
           </p>
