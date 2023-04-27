@@ -1,0 +1,18 @@
+databaseChangeLog:
+  -  changeSet:
+       id:  1
+       author:  gdefofot
+       preConditions:
+         - onFail: MARK_RAN
+         - tableExists:
+             schemaName: public
+             tableName: invitations
+       changes:
+         - update:
+             columns:
+               - column:
+                   name: status
+                   value: 'PENDING'
+             schemaName: public
+             tableName: invitations
+             where: status='DECLINED'
